@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/main_navigation"
+            app:startDestination="@id/mainFragment">
+
+    <fragment
+            android:id="@+id/mainFragment"
+            android:name="io.github.jimmysharp.navigationsample.ui.main.MainFragment"
+            android:label="main_fragment"
+            tools:layout="@layout/main_fragment">
+        <action
+                android:id="@+id/action_main_go_next1"
+                app:destination="@id/nextFragment1"/>
+        <action
+                android:id="@+id/action_main_go_next2"
+                app:destination="@id/nextFragment2"/>
+        <action
+                android:id="@+id/action_main_go_login"
+                app:destination="@+id/login_navigation"
+                app:popUpTo="@+id/main_navigation"
+                app:popUpToInclusive="true"/>
+        <action
+                android:id="@+id/action_main_go_layered"
+                app:destination="@id/layeredFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/nextFragment1"
+              android:name="io.github.jimmysharp.navigationsample.ui.main.NextFragment1"
+              android:label="next_fragment_1"
+              tools:layout="@layout/next_fragment_1">
+        <action
+                android:id="@+id/action_next1_go_next"
+                app:destination="@id/nextFragment2"
+                app:popUpTo="@id/mainFragment"
+                app:popUpToInclusive="false"/>
+    </fragment>
+    <fragment
+            android:id="@+id/nextFragment2"
+            android:name="io.github.jimmysharp.navigationsample.ui.main.NextFragment2"
+            android:label="next_fragment_2"
+            tools:layout="@layout/next_fragment_2">
+    </fragment>
+    <fragment android:id="@+id/layeredFragment"
+              android:name="io.github.jimmysharp.navigationsample.ui.main.LayeredFragment"
+              android:label="layered_fragment"
+              tools:layout="@layout/layered_fragment"/>
+
+    <action
+            android:id="@+id/action_global_go_main"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/main_navigation"
+            app:popUpToInclusive="true"/>
+
+    <navigation
+            android:id="@+id/login_navigation"
+            app:startDestination="@id/loginFragment">
+
+        <fragment android:id="@+id/loginFragment"
+                  android:name="io.github.jimmysharp.navigationsample.ui.main.LoginFragment"
+                  android:label="login_fragment"
+                  tools:layout="@layout/login_fragment">
+            <action
+                    android:id="@+id/action_login_go_back"
+                    app:destination="@+id/main_navigation"
+                    app:popUpTo="@id/login_navigation"
+                    app:popUpToInclusive="true"/>
+        </fragment>
+
+    </navigation>
+</navigation>

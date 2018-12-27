@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/inside_navigation"
+            app:startDestination="@id/insideFragment1">
+
+    <fragment android:id="@+id/insideFragment1"
+              android:name="io.github.jimmysharp.navigationsample.ui.main.InsideFragment1"
+              android:label="inside_fragment_1"
+              tools:layout="@layout/inside_fragment_1">
+        <action android:id="@+id/action_inside1_go_next"
+                app:destination="@id/insideFragment2"/>
+    </fragment>
+    <fragment android:id="@+id/insideFragment2"
+              android:name="io.github.jimmysharp.navigationsample.ui.main.InsideFragment2"
+              android:label="inside_fragment_2"
+              tools:layout="@layout/inside_fragment_2"/>
+</navigation>
